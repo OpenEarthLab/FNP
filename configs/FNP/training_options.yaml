@@ -1,0 +1,76 @@
+vnames: &id001
+  single_level_vnames:
+  - u10
+  - v10
+  - t2m
+  - msl
+  multi_level_vnames:
+  - z
+  - q
+  - u
+  - v
+  - t
+  hight_level_list:
+  - 50
+  - 100
+  - 150
+  - 200
+  - 250
+  - 300
+  - 400
+  - 500
+  - 600
+  - 700
+  - 850
+  - 925
+  - 1000
+dataset:
+  train:
+    type: era5_npy_f32
+    data_dir: ./data
+    train_stride: 6
+    file_stride: 6
+    sample_stride: 1
+    vnames: *id001
+  valid:
+    type: era5_npy_f32
+    data_dir: ./data
+    train_stride: 6
+    file_stride: 6
+    sample_stride: 1
+    vnames: *id001
+dataloader:
+  num_workers: 4
+  pin_memory: true
+  prefetch_factor: 2
+  persistent_workers: true
+model:
+  type: FNP
+  params:
+    n_channels:
+      - 4
+      - 13
+      - 13
+      - 13
+      - 13
+      - 13
+    r_dim: 128  # 128 for 128×256 & 256×512 resolution, 64 for 721×1440 resolution
+    use_nfl: true
+    use_dam: true
+  criterion: CNPFLoss
+  optimizer:
+    type: AdamW
+    params:
+      lr: 1.0e-04
+      betas:
+      - 0.9
+      - 0.9
+      weight_decay: 0.01
+  lr_scheduler:
+    type: OneCycleLR
+    params:
+      max_lr: 1.0e-4
+      pct_start: 0.1
+      anneal_strategy: cos
+      div_factor: 100
+      final_div_factor: 1000
