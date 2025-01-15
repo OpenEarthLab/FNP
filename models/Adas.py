@@ -123,7 +123,7 @@ class Adas(object):
         truth = F.interpolate(truth, size=(args.resolution,args.resolution//2*4), mode='bilinear')
         truth_down = F.interpolate(truth, size=(128,256), mode='bilinear')
 
-        for _ in range(args.lead_time // 6 + 2):
+        for _ in range(args.lead_time // 6):
             predict_data = args.forecast_model.run(None, {'input':inp_data})[0][:,:truth.shape[1]]
             inp_data = np.concatenate([inp_data[:,-truth.shape[1]:], predict_data], axis=1)        
 
