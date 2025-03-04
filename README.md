@@ -1,6 +1,6 @@
 # FNP: Fourier Neural Processes for Arbitrary-Resolution Data Assimilation
 
-This repo contains the official PyTorch codebase of <a href="https://arxiv.org/abs/2406.01645" target="_blank">FNP</a>. Our paper is accepted by NeurIPS 2024.
+This repo contains the official PyTorch codebase of <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/f93d03f2ad836c815b7ca60dfbe23bf8-Abstract-Conference.html" target="_blank">FNP</a>. Our paper is accepted by NeurIPS 2024.
 
 ## Codebase Structure
 
@@ -69,10 +69,12 @@ The best checkpoint saved during training will be loaded to evaluate the MSE, MA
 
 ## BibTeX
 ```bibtex
-@article{chen2024fnp,
-  title={FNP: Fourier Neural Processes for Arbitrary-Resolution Data Assimilation},
-  author={Chen, Kun and Chen, Tao and Ye, Peng and Chen, Hao and Chen, Kang and Han, Tao and Ouyang, Wanli and Bai, Lei},
-  journal={arXiv preprint arXiv:2406.01645},
-  year={2024}
+@article{chen2025fnp,
+  title={Fnp: Fourier neural processes for arbitrary-resolution data assimilation},
+  author={Chen, Kun and Ye, Peng and Chen, Hao and Han, Tao and Ouyang, Wanli and Chen, Tao and BAI, LEI and others},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={137847--137872},
+  year={2025}
 }
 ```
